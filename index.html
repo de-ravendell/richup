@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RICHUP?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        input {
+            padding: 10px;
+            width: 200px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Enter Room Index</h1>
+        <div>
+            <input id="roomNumber" placeholder="Enter room index">
+            <button onclick="redirectToRoom()">GO</button>
+        </div>
+    </div>
+
+    <script>
+        function redirectToRoom() {
+            const roomNumber = document.getElementById('roomNumber').value;
+            if (roomNumber) {
+                window.location.href = `https://richup.io/room/${roomNumber}`;
+            } else {
+                alert('Please enter a valid room number');
+            }
+        }
+
+        // Allow pressing Enter key to submit
+        document.getElementById('roomNumber').addEventListener('keyup', function(event) {
+            if (event.key === 'Enter') {
+                redirectToRoom();
+            }
+        });
+    </script>
+</body>
+</html>
